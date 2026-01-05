@@ -1,0 +1,27 @@
+sudo apt update
+sudo apt full-upgrade
+sudo apt install git build-essential postgresql postgresql-sudo apt update
+sudo apt install elixir erlang-dev erlang-nox
+sudo useradd -r -s /bin/false -m -d /var/lib/linkhut -U sudo mkdir -p /opt/linkhut
+sudo chown -R linkhut:linkhut /opt/linkhut
+sudo -Hu linkhut git clone https://git.sr.ht/~mlb/linkhut /opt/sudo -Hu linkhut mix deps.get
+sudo -Hu linkhut mix sudo -Hu linkhut mix deps.get
+
+cat << EOF > /var/lib/linkhut.env
+SECRET_KEY_BASE="<secret_key>"
+DATABASE_URL="ecto://<db_user>:<db_pass>@localhost/linkhut"
+LINKHUT_HOST="<sr.ht>"
+SMTP_HOST="<smtp_host>"
+SMTP_PORT="<smtp_port>"
+SMTP_USERNAME="<smtp_user>"
+SMTP_PASSWORD="<smtp_pass>"
+SMTP_DKIM_SELECTOR="<dkim_selector>"
+SMTP_DKIM_DOMAIN="<dkim_domain>"
+SMTP_DKIM_PRIVATE_KEY="<dkim_pkey>"
+EMAIL_FROM_NAME="<web4app>"
+EMAIL_FROM_ADDRESS="<git.linkhut.org>"
+EOF
+
+sudo -Hu linkhut MIX_ENV=prod mix ecto.setup
+sudo -Hu linkhut MIX_ENV=prod mix ecto.migrate
+sudo -Hu linkhut MIX_ENV=prod mix phx.server
