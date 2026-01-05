@@ -9,3 +9,10 @@ IO.puts("hello world")
 
 # Bind a variable that'll be accessible in the shell
 value = 13
+iex
+Erlang/OTP 24 [...]
+
+hello world
+Interactive Elixir - press Ctrl+C to exit (type h() ENTER for help)
+iex(1)> value
+13
