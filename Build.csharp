@@ -1,0 +1,21 @@
+public static void RebuildIndex(IEnumerable<MyEntity> items)
+{
+    using (var writer = CreateWriter())
+    {
+        writer.DeleteAll();
+
+        foreach (var item in items)
+        {
+            var doc = new Document
+            {
+                new StringField("Id", item.Id.ToString(), Field.Store.YES),
+                new TextField("Name", item.Name ?? "", Field.Store.YES),
+                new TextField("Description", item.Description ?? "", Field.Store.NO)
+            };
+
+            writer.AddDocument(doc);
+        }
+
+        writer.Commit();
+    }
+}
