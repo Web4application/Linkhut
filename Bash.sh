@@ -41,3 +41,8 @@ git submodule add https://git.sr.ht/~mlb/gergo_replicant ./layouts/community/ger
 make git-submodule
 
 make gergo:replicant:dfu
+
+sudo mkdir -p /opt/linkhut
+sudo chown -R linkhut:linkhut /opt/linkhut
+sudo -Hu linkhut git clone https://git.sr.ht/~mlb/linkhut /opt/linkhut
+
