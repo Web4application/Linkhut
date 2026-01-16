@@ -25,3 +25,19 @@ EOF
 sudo -Hu linkhut MIX_ENV=prod mix ecto.setup
 sudo -Hu linkhut MIX_ENV=prod mix ecto.migrate
 sudo -Hu linkhut MIX_ENV=prod mix phx.server
+
+git clone https://github.com/qmk/qmk_firmware.git
+
+cd qmk_firmware
+
+git reset --hard ddcb1794fa
+
+echo "LAYOUTS = gergo" >> ./keyboards/gergo/rules.mk
+
+mkdir ./layouts/community/gergo/
+
+git submodule add https://git.sr.ht/~mlb/gergo_replicant ./layouts/community/gergo/replicant
+
+make git-submodule
+
+make gergo:replicant:dfu
