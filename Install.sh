@@ -1,3 +1,4 @@
+
 cd /var/lib/linkhut
 sudo -Hu linkhut bin/linkhut_ctl user new <web4app> <kubulee.kl@gmail.com> --admin
 sudo apt update
@@ -37,12 +38,11 @@ echo "LAYOUTS = gergo" >> ./keyboards/gergo/rules.mk
 mkdir ./layouts/community/gergo/
 
 git submodule add https://git.sr.ht/~mlb/gergo_replicant ./layouts/community/gergo/replicant
-
 make git-submodule
-
 make gergo:replicant:dfu
-
 sudo mkdir -p /opt/linkhut
 sudo chown -R linkhut:linkhut /opt/linkhut
 sudo -Hu linkhut git clone https://git.sr.ht/~mlb/linkhut /opt/linkhut
-
+gem build google-apis-drive_v3.gemspec
+gem install ./google-apis-drive_v3-0.x.x.gem
+ruby -e "require 'google/apis/drive_v3'; require 'google/apis/calendar_v3'; puts 'Success!'"
