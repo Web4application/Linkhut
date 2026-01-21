@@ -1,0 +1,9 @@
+schema "packages" do
+  field :name, :string
+  field :description, :string
+
+  belongs_to :repository, Linkhut.Repositories.Repository
+  has_many :versions, Linkhut.Packages.Version
+
+  timestamps()
+end
