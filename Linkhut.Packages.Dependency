@@ -1,0 +1,10 @@
+schema "dependencies" do
+  field :repo, :string
+  field :name, :string
+  field :constraint, :string
+  field :optional, :boolean, default: false
+
+  belongs_to :package_version, Linkhut.Packages.Version
+
+  timestamps()
+end
