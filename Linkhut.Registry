@@ -1,0 +1,12 @@
+def fetch_versions(repo, package) do
+  with repo <- Repos.get_by_name(repo),
+       pkg <- Packages.get(repo.id, package) do
+    versions =
+      pkg.versions
+      |> Enum.map(& &1.version)
+
+    {:ok, versions}
+  else
+    _ -> :error
+  end
+end
