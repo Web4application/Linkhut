@@ -1,0 +1,9 @@
+schema "package_versions" do
+  field :version, :string
+  field :checksum, :string
+
+  belongs_to :package, Linkhut.Packages.Package
+  has_many :dependencies, Linkhut.Packages.Dependency
+
+  timestamps()
+end
