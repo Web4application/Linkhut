@@ -10,7 +10,7 @@ sudo -Hu linkhut MIX_ENV=prod mix ecto.migrate
 sudo -Hu linkhut MIX_ENV=prod mix phx.server
 git submodule add https://git.sr.ht/~mlb/gergo_replicant ./layouts/community/gergo/replicant
 make git-submodule
-make gergo:replicant:dfu
+make gergo/replicant/dfu
 sudo mkdir -p /opt/linkhut
 sudo chown -R linkhut:linkhut /opt/linkhut
 sudo -Hu linkhut git clone https://git.sr.ht/~mlb/linkhut /opt/linkhut
