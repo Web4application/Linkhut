@@ -3,7 +3,6 @@
 GPT Vision + RealSense D435i Integration
 Real-time scene analysis using OpenAI's GPT Vision API with Intel RealSense camera
 """
-
 import asyncio
 import pyrealsense2 as rs
 import numpy as np
