@@ -8,3 +8,5 @@ sudo useradd -r -s /bin/false -m -d /var/lib/linkhut -U sudo mkdir -p /opt/linkh
 sudo chown -R linkhut:linkhut /opt/linkhut
 sudo -Hu linkhut git clone https://git.sr.ht/~mlb/linkhut /opt/sudo -Hu linkhut mix deps.get
 sudo -Hu linkhut mix sudo -Hu linkhut mix deps.get
+export MAKEFLAGS=-j8    # Assuming bash/sh
+make
