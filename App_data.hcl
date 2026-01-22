@@ -3,3 +3,4 @@ public static string LuceneIndexPath =>
         AppDomain.CurrentDomain.GetData("DataDirectory").ToString(),
         "lucene-xpoint"
     );
+
