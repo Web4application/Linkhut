@@ -19,3 +19,4 @@ public static void RebuildIndex(IEnumerable<MyEntity> items)
         writer.Commit();
     }
 }
+
